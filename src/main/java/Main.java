@@ -9,8 +9,10 @@ public class Main {
 
 
         MySqlConnector mySqlConnector = new MySqlConnector(DB_HOST, DB_NAME, USER_NAME, PASSWORD);
+
         String sqlCommand = "select * from users";
 
         mySqlConnector.runQuery(sqlCommand);
+
     }
 }
