@@ -1,9 +1,12 @@
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-
-
 public class Main {
+
+    private static final String DB_NAME = "acme";
+    private static final String DB_HOST = "jdbc:mysql://localhost:3306/";
+    private static final String USER_NAME = "qp";
+    private static final String PASSWORD = "12345";
 
     public static void displayUserNames(ResultSet resultSet) throws SQLException {
         while(resultSet.next()) {
@@ -16,12 +19,6 @@ public class Main {
 
     public static void main(String[] args) throws SQLException {
 
-        final String DB_NAME = "acme";
-        final String DB_HOST = "jdbc:mysql://localhost:3306/";
-        final String USER_NAME = "qp";
-        final String PASSWORD = "12345";
-
-
         System.out.println("Connecting to MySQL database...");
         MySqlConnector mySqlConnector = new MySqlConnector(DB_HOST, DB_NAME, USER_NAME, PASSWORD);
 
@@ -29,7 +26,5 @@ public class Main {
         String sqlCommand = "select id, first_name, last_name from users";
         ResultSet resultSet = mySqlConnector.runQuery(sqlCommand);
         displayUserNames(resultSet);
-
-
     }
 }
