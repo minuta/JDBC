@@ -20,19 +20,15 @@ public class MySqlConnector {
         }
     }
 
-    public void runQuery (String sqlCommand){
-            try(Statement statement = connection.createStatement()){
-                try(ResultSet result = statement.executeQuery(sqlCommand)){
-                    while(result.next()) {
-                        int id = result.getInt(1);
-                        String firstName = result.getString("first_name");
-                        String lastName  = result.getString("last_name");
-                        System.out.println(id + " " + firstName + " " + lastName);
-                    }
-                }
-            } catch (SQLException e) {
+    public ResultSet runQuery(String sqlCommand) {
+        ResultSet result = null;
+        try{
+            Statement statement = connection.createStatement();
+            result = statement.executeQuery(sqlCommand);
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+        return result;
     }
 
     private Connection initConnection() throws SQLException {
