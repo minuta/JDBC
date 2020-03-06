@@ -2,10 +2,10 @@ import java.sql.*;
 
 public class MySqlConnector {
 
-    private String dbName;
-    private String dbHost;
-    private String userName;
-    private String userPass;
+    private final String dbName;
+    private final String dbHost;
+    private final String userName;
+    private final String userPass;
     private Connection connection;
 
     public MySqlConnector(String dbHost, String dbName, String userName, String userPass) {

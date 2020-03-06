@@ -8,10 +8,12 @@ public class Main {
         final String PASSWORD = "12345";
 
 
+        System.out.println("Connecting to MySQL database...");
         MySqlConnector mySqlConnector = new MySqlConnector(DB_HOST, DB_NAME, USER_NAME, PASSWORD);
 
-        String sqlCommand = "select * from users";
 
+        System.out.println("Executing SQL statement...");
+        String sqlCommand = "select * from users";
         mySqlConnector.runQuery(sqlCommand);
 
     }
